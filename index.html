@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Joan', serif;
+            background-color: cornflowerblue;
+        }
+        h1{
+            text-align: center;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        div button{
+            margin: 20px 0 0 40px;
+            background-color: rgb(228, 200, 108);
+            width: 100px;
+            height: 40px;
+            color: rgb(29, 25, 25);
+            border: none;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: rgb(188, 85, 214);
+            color: aliceblue;
+        }
+        h2{
+            text-align: center;
+        }
+        span{
+           color: rgb(173, 38, 121);
+
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Rock--Paper--Scissor</h1>
+
+    <!--Buttons-->
+
+    <div>
+    <button onclick="user('R')">Rock</button>
+    <button onclick="user('P')">Paper</button>
+    <button onclick="user('S')">Scissor</button>
+    </div>
+      
+    <!--User-->
+
+     <h2>User:<span id="user"></span></h2>
+
+     <!--Computer-->
+
+    <h2>Computer:<span id="computer"></span></h2>
+
+     <!--Result-->
+
+    <h2>Result:<span id="result"></span></h2>
+
+       <!--Javascript-->
+
+    <script>
+
+     //Computer Function
+    function computer(){
+    var a=['R','P','S']
+    var b=Math.floor((Math.random()*3));
+    return a[b];
+}
+
+    //User Function
+    function user(a){
+    document.getElementById('user').innerHTML=a;
+    var c=computer();
+    document.getElementById('computer').innerHTML=c;
+
+    //Results
+    switch(a+c){
+        case 'RS':
+        case 'PR':
+        case 'SP':
+        document.getElementById('result').innerHTML="You Win";
+            break;
+        case 'SR':
+        case 'RP':
+        case 'PS':
+        document.getElementById('result').innerHTML="You Lose";
+            break;
+        case 'RR':
+        case 'PP':
+        case 'SS':
+        document.getElementById('result').innerHTML="Match Die";
+            break;
+    }
+}
+</script>
+</body>
+</html>
